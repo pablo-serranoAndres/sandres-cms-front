@@ -1,9 +1,9 @@
-import "./App.css";
+import styles from "./styles/App.module.scss";
 
 function App() {
   return (
     <>
-      <h1>Sandres-CMS!</h1>
+      <h1 className={styles.title}>Sandres-CMS!</h1>
     </>
   );
 }
