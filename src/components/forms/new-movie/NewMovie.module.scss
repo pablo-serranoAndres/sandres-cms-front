@@ -1,0 +1,321 @@
+@use "@styles/variables.scss" as *;
+
+.formPage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 960px;
+    padding: 20px;
+
+    hr {
+      border: none;
+      height: 1.4px;
+      background-color: $border-color;
+      margin-bottom: 20px;
+    }
+    span {
+      font-weight: $font-weight-semi;
+      letter-spacing: 0.1em;
+      color: $primary;
+      font-size: 10px;
+
+      a {
+        text-decoration: none;
+        color: $text-muted;
+        transition: color 0.2s ease;
+        &:hover {
+          color: $primary-hover;
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+  }
+
+  h2 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    svg {
+      font-size: 1.5rem;
+      color: $primary;
+    }
+  }
+
+  label {
+    font-weight: $font-weight-semi;
+    font-size: 0.875rem;
+  }
+
+  .inputBase {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input,
+    textarea,
+    select {
+      padding: 12px;
+      outline: none;
+      border-radius: 10px;
+      background-color: $bg-body;
+      border: 2px solid $border-color;
+      font-family: $font-family;
+      transition: all 0.2s ease;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 4px rgba($primary, 0.1);
+        background-color: #fff;
+      }
+      &::placeholder {
+        font-style: italic;
+        color: $text-muted;
+      }
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+  }
+}
+
+.submitArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &_buttons {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.newMovie {
+  &_generalInfo {
+    padding: 30px;
+    background-color: $bg-white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .doubleColumnInput {
+      display: flex;
+      gap: 20px;
+      .inputBase {
+        flex: 1;
+      }
+    }
+  }
+
+  &_movieImaging {
+    padding: 30px;
+    background-color: $bg-white;
+    border-radius: 15px;
+    height: fit-content;
+
+    .uploadingImages {
+      display: flex;
+      gap: 25px;
+      height: 250px;
+      margin-top: 10px;
+
+      .verticalPoster,
+      .heroImage {
+        position: relative;
+        border: 2px dashed $border-color;
+        border-radius: 12px;
+        background-color: $bg-body;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        &:hover {
+          border-color: $primary;
+          background-color: rgba($primary, 0.02);
+        }
+
+        input[type="file"] {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          cursor: pointer;
+          z-index: 2;
+        }
+      }
+
+      .verticalPoster {
+        width: 240px;
+        height: 100%;
+      }
+      .heroImage {
+        flex: 1;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.decoContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+
+  svg {
+    color: $text-light;
+    font-size: 2.2rem;
+    transition: color 0.2s ease;
+  }
+
+  span {
+    font-weight: $font-weight-bold;
+    // color: $text-light;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  &_sizesText {
+    color: $text-light !important;
+  }
+  &_featuredText {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $primary;
+    margin-top: 2px;
+  }
+}
+
+.verticalPoster:hover,
+.heroImage:hover {
+  .decoContent svg {
+    color: $primary;
+    transform: translateY(-2px);
+  }
+}
+
+.newMovie_movieScenes {
+  padding: 30px;
+  background-color: $bg-white;
+  border-radius: 15px;
+  gap: 20px;
+
+  h2 {
+    margin-bottom: 0px;
+  }
+
+  .helpText {
+    font-size: 0.75rem;
+    color: $text-light;
+    letter-spacing: 0;
+    font-weight: $font-weight-reg;
+  }
+
+  .scenesColection {
+    margin-top: 20px;
+  }
+}
+
+.newSceneCard {
+  background-color: $bg-body;
+  border: solid $border-color 1px;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+
+  gap: 15px;
+  transition: all 0.2s ease-in;
+
+  &_files {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+  }
+
+  &_data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.uploadChip {
+  border: 2px solid $border-color;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: border 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $primary;
+  }
+
+  input[type="file"] {
+    width: 100%;
+    opacity: 0;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  p {
+    margin: 0 0 0 0;
+  }
+  svg {
+    font-size: 1.1rem;
+    color: $primary;
+  }
+
+  span {
+    padding: 7px;
+    border-radius: 10px;
+    background-color: $primary-shadow;
+  }
+
+  &_text {
+    &_violet {
+      font-size: 0.875rem;
+      font-weight: $font-weight-bold;
+      color: $primary;
+    }
+    &_grey {
+      font-size: 0.575rem;
+      font-weight: $font-weight-reg;
+      color: $text-light;
+    }
+
+    &_uploadRoute {
+      margin-top: 7px !important;
+      font-size: 0.675rem;
+    }
+  }
+}

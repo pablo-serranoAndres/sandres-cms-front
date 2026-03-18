@@ -22,6 +22,7 @@ body {
 }
 
 body {
+  max-height: fit-content;
   font-family:
     "Inter",
     system-ui,
@@ -29,6 +30,9 @@ body {
     sans-serif;
   background-color: red;
   color: #0f172a;
+  overflow: hidden;
+  max-height: 100vh;
+
   /* line-height: 1.5; */
   overflow-x: hidden;
 }

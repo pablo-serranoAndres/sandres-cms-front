@@ -18,19 +18,36 @@ export const Modal = () => {
         </p>
         <div className={styles.contentOptions}>
           <ul>
-            <li onClick={() => closeModal()}>
+            <li
+              onClick={() => {
+                closeModal();
+                navigate("/upload/movie");
+              }}
+            >
               <span>
                 <MdOutlineMovieCreation />
               </span>
               <p>Nueva Película</p>
             </li>
-            <li onClick={() => closeModal()}>
+            <li
+              onClick={() => {
+                closeModal();
+                navigate("/upload/serie");
+              }}
+            >
+              {" "}
               <span>
                 <CiMonitor />
               </span>
               <p>Nueva serie</p>
             </li>
-            <li onClick={() => closeModal()}>
+            <li
+              onClick={() => {
+                closeModal();
+                navigate("/upload/diarie");
+              }}
+            >
+              {" "}
               <span>
                 <MdMenuBook />
               </span>

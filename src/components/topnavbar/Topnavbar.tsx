@@ -1,11 +1,11 @@
 import styles from "./Topnavbar.module.scss";
 import dumbImage from "../../assets/dumb-image.jpg";
-import { Input } from "@components";
 
 export const Topnavbar = () => {
   return (
     <div className={styles.navbarContainer}>
-      <Input label={""} />
+      {/* <Input label={""} /> */}
+      <input type="text" placeholder="Buscar películas, series, diarios..." />
       <UserChip name={"John Smith"} role={"admin"} />
     </div>
   );
