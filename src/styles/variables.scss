@@ -1,1 +1,37 @@
-$primary-color: yellow;
+// _variables.scss
+
+// 1. Colores de Marca
+$primary: #7c3aed;
+$primary-hover: #6d28d9;
+$primary-light: rgba(124, 58, 237, 0.1);
+$primary-shadow: rgba(124, 58, 237, 0.2);
+
+// 2. Colores de Interfaz (Grises/Slate)
+$bg-body: #f8fafc; // slate-50
+$bg-white: #ffffff;
+$text-main: #0f172a; // slate-900
+$text-muted: #64748b; // slate-500
+$text-light: #94a3b8; // slate-400
+$text-white: #ffffff;
+
+// 3. Bordes y Superficies
+$border-color: #e5e7eb; // border-light
+$input-bg: #f9fafb; // slate-50 para inputs
+$border-radius: 0.5rem; // lg
+$border-radius-xl: 0.75rem;
+
+// 4. Tipografía
+$font-family: "Inter", sans-serif;
+$font-weight-bold: 700;
+$font-weight-semi: 600;
+$font-weight-reg: 400;
+
+// 5. Sombras (Shadows)
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-card:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+// 6. Breakpoints (Media Queries)
+$tablet: 768px;
+$desktop: 1024px;

@@ -1,0 +1,61 @@
+@use "@styles/variables.scss" as *;
+
+.nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  img {
+    padding-top: 10px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+
+  span,
+  li {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.75rem 1rem;
+      color: $text-muted;
+      border-radius: $border-radius;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: rgba($primary, 0.08);
+        color: $primary;
+
+        svg {
+          color: $primary;
+        }
+      }
+
+      svg {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.menu {
+  padding-top: 30px;
+  margin-top: 40px;
+  font-size: small;
+  font-weight: 600;
+  color: $text-light;
+}
+
+.addNew {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}

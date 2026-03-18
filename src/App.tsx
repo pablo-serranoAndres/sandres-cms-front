@@ -1,10 +1,12 @@
-import styles from "./styles/App.module.scss";
+import { ModalProvider } from "./context/ModalContext";
+import { AppRoutes } from "./routes/AppRoutes";
 
 function App() {
   return (
-    <>
-      <h1 className={styles.title}>Sandres-CMS!</h1>
-    </>
+    <ModalProvider>
+      {/* <Modal /> */}
+      <AppRoutes />;
+    </ModalProvider>
   );
 }
 
