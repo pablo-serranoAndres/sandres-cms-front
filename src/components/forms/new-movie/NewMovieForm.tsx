@@ -26,6 +26,7 @@ export const NewMovieForm = () => {
               text={"Guardar película"}
             />
             <Button variant={"filled"} size={"md"} text={"Publicar"} />
+            <input type="submit" value={"Enviar!"} />
           </div>
         </div>
         <div className={styles.newMovie_generalInfo}>
@@ -101,7 +102,15 @@ export const NewMovieForm = () => {
           </span>
           <div className={styles.scenesColection}>
             <NewSceneCard />
+            <NewSceneCard />
+            <NewSceneCard />
           </div>
+        </div>
+        <div className={styles.submitArea_buttons}>
+          <Button variant={"transparent"} size={"md"} text={"Descartar"} />
+          <Button variant={"outlined"} size={"md"} text={"Guardar película"} />
+          <Button variant={"filled"} size={"md"} text={"Publicar"} />
+          <input type="submit" value={"Enviar!"} />
         </div>
       </form>
     </section>

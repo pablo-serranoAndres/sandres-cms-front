@@ -101,6 +101,16 @@
     display: flex;
     gap: 10px;
   }
+
+  input[type="submit"] {
+    background-color: yellow;
+    font-weight: $font-weight-bold;
+
+    &:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+    }
+  }
 }
 
 .newMovie {
@@ -231,6 +241,9 @@
 
   .scenesColection {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
