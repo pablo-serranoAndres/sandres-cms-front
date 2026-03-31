@@ -1,0 +1,27 @@
+@use "@styles/variables.scss" as *;
+
+.newSceneCard {
+  background-color: $bg-body;
+  border: solid $border-color 1px;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+
+  gap: 15px;
+  transition: all 0.2s ease-in;
+
+  &_files {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+  }
+
+  &_data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

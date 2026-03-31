@@ -1,0 +1,22 @@
+@use "@styles/variables.scss" as *;
+
+.submitArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &_buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  input[type="submit"] {
+    background-color: yellow;
+    font-weight: $font-weight-bold;
+
+    &:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+    }
+  }
+}

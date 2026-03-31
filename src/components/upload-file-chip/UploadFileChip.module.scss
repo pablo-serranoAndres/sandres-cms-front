@@ -1,0 +1,61 @@
+@use "@styles/variables.scss" as *;
+
+.uploadChip {
+  border: 2px solid $border-color;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: border 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $primary;
+  }
+
+  input[type="file"] {
+    width: 100%;
+    opacity: 0;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  p {
+    margin: 0 0 0 0;
+  }
+  svg {
+    font-size: 1.1rem;
+    color: $primary;
+  }
+
+  span {
+    padding: 7px;
+    border-radius: 10px;
+    background-color: $primary-shadow;
+  }
+
+  &_text {
+    &_violet {
+      font-size: 0.875rem;
+      font-weight: $font-weight-bold;
+      color: $primary;
+    }
+    &_grey {
+      font-size: 0.575rem;
+      font-weight: $font-weight-reg;
+      color: $text-light;
+    }
+
+    &_uploadRoute {
+      margin-top: 7px !important;
+      font-size: 0.675rem;
+    }
+  }
+}

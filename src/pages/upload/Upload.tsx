@@ -1,12 +1,12 @@
-import { NewDiarieForm, NewMovieForm, NewSerieForm } from "@components";
+import { NewMovieForm } from "@components";
 import { useModal } from "@hooks";
 import { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
 
 const UPLOABLES = new Map<string, React.ReactNode>([
   ["movie", <NewMovieForm />],
-  ["serie", <NewSerieForm />],
-  ["diarie", <NewDiarieForm />],
+  // ["serie", <NewSerieForm />],
+  // ["diarie", <NewDiarieForm />],
 ]);
 
 export const Upload = () => {

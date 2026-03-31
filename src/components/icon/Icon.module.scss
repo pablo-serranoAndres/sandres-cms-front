@@ -1,0 +1,27 @@
+@use "@styles/variables.scss" as *;
+
+.background {
+  &_true {
+    padding: 7px;
+    border-radius: 10px;
+    background-color: $primary-shadow;
+  }
+}
+
+.sm {
+  svg {
+    font-size: 0.8rem !important;
+  }
+}
+
+.md {
+  svg {
+    font-size: 1.1rem !important;
+  }
+}
+
+.bg {
+  svg {
+    font-size: 2rem !important;
+  }
+}
