@@ -1,0 +1,18 @@
+@use "@styles/variables.scss" as *;
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: $border-radius;
+  background-color: $bg-white;
+  box-shadow: $shadow-card;
+  margin-top: 15px;
+}
+
+.form_section_header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

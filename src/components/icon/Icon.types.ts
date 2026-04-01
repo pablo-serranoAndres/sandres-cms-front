@@ -9,5 +9,6 @@ export interface IconProps {
     | "strip"
     | "navigation";
   background: boolean;
+  color: "primary" | "secondary" | "base";
   size: "sm" | "md" | "bg";
 }

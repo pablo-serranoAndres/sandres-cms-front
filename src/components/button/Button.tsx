@@ -1,24 +1,29 @@
 import { Link } from "react-router-dom";
 import styles from "./Button.module.scss";
 import classNames from "classnames";
-import { APP_PATHS, type ButtonProps } from "./Button.types";
+import { type ButtonProps } from "./Button.types";
+import { APP_PATHS } from "../../routes/path";
 
 export const Button = ({
-  variant = "outlined",
+  variant = "filled",
   size = "md",
-  text,
   icon,
+  type,
+  text,
   link,
   onclick,
 }: ButtonProps) => {
-  const clasNames = classNames(styles[variant], styles[size]);
+  const clasNames = classNames(styles.button, styles[variant], styles[size]);
+
   return link ? (
     <Link className={clasNames} to={APP_PATHS[link]}>
-      {icon} {text}
+      {icon && <span>{icon}</span>}
+      {text}
     </Link>
   ) : (
-    <button className={clasNames} onClick={onclick}>
-      {icon} {text}
+    <button className={clasNames} onClick={onclick} type={type}>
+      {icon && <span>{icon}</span>}
+      {text}
     </button>
   );
 };

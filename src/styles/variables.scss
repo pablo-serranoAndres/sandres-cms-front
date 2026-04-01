@@ -11,8 +11,14 @@ $bg-body: #f8fafc; // slate-50
 $bg-white: #ffffff;
 $text-main: #0f172a; // slate-900
 $text-muted: #64748b; // slate-500
-$text-light: #94a3b8; // slate-400
+$text-light: rgb(226 232 240); // slate-400
 $text-white: #ffffff;
+$input-background: rgb(248 250 252);
+
+$font-size-micro: 0.575rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-bg: 1.125rem;
 
 // 3. Bordes y Superficies
 $border-color: #e5e7eb; // border-light

@@ -1,0 +1,59 @@
+@use "@styles/variables.scss" as *;
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25rem;
+  font-weight: $font-weight-semi;
+  font-size: $font-size-sm;
+  //   padding-bottom: 10px;
+
+  &_input,
+  &_textarea {
+    padding: 10px;
+    border: 2px solid $border-color;
+    border-radius: 10px;
+    outline: none;
+
+    &:focus {
+      border: 2px solid $primary;
+      box-shadow: 0 0 0 4px rgba($primary, 0.1);
+      background-color: #fff;
+    }
+
+    &::placeholder {
+      color: $text-muted;
+      font-size: $font-size-sm;
+      opacity: 1;
+      font-family: $font-family;
+      font-style: italic;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &_textarea {
+    field-sizing: content;
+    min-height: 150px;
+    font-family: $font-family;
+
+    &::placeholder {
+      font-family: $font-family;
+    }
+  }
+}
+
+.transparent {
+  textarea,
+  input,
+  select {
+    background-color: transparent;
+  }
+}
+
+.filled {
+  textarea,
+  input,
+  select {
+    background-color: $input-background;
+  }
+}

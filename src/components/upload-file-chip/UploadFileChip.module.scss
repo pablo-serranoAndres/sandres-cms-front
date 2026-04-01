@@ -43,12 +43,12 @@
 
   &_text {
     &_violet {
-      font-size: 0.875rem;
+      font-size: $font-size-sm;
       font-weight: $font-weight-bold;
       color: $primary;
     }
     &_grey {
-      font-size: 0.575rem;
+      font-size: $font-size-micro;
       font-weight: $font-weight-reg;
       color: $text-light;
     }

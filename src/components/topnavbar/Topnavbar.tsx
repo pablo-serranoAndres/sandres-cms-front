@@ -1,31 +1,35 @@
 import styles from "./Topnavbar.module.scss";
 import dumbImage from "../../assets/dumb-image.jpg";
-
-export const Topnavbar = () => {
-  return (
-    <div className={styles.navbarContainer}>
-      {/* <Input label={""} /> */}
-      <input type="text" placeholder="Buscar películas, series, diarios..." />
-      <UserChip name={"John Smith"} role={"admin"} />
-    </div>
-  );
-};
+import { Input } from "../input";
 
 interface UserChipProps {
   name: string;
   role: "admin" | "editor" | "visitor";
   // img: { src: string; alt: string };
 }
-const UserChip = (props: UserChipProps) => {
+const UserChip = ({ name, role }: UserChipProps) => {
   return (
     <div className={styles.userChip}>
       <div className={styles.userChipText}>
-        <span className={styles.userChipText_name}>{props.name}</span>
-        <span className={styles.userChipText_role}>
-          {props.role.toUpperCase()}
-        </span>
+        <span className={styles.userChipText_name}>{name}</span>
+        <span className={styles.userChipText_role}>{role.toUpperCase()}</span>
       </div>
       <img src={dumbImage} alt={"Foto de perfil"} />
+    </div>
+  );
+};
+
+export const Topnavbar = () => {
+  return (
+    <div className={styles.navbarContainer}>
+      <form>
+        <Input
+          id={"search-all-contents"}
+          type={"text"}
+          placeholder="Buscar películas, series, diarios..."
+        />
+      </form>
+      <UserChip name={"John Smith"} role={"admin"} />
     </div>
   );
 };

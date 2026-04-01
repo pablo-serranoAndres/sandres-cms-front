@@ -1,10 +1,7 @@
-import {
-  GeneralInfoSection,
-  PresentationImagesSection,
-  SubmitArea,
-} from "./components";
+import { GeneralInfoSection, SubmitArea } from "./components";
+
 import styles from "./NewMovie.module.scss";
-import { MovieScenesSection } from "./components/section-movie-scenes/MovieScenesSection";
+
 export const NewMovieForm = () => {
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,9 +19,9 @@ export const NewMovieForm = () => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <SubmitArea header={true} />
         <GeneralInfoSection />
-        <PresentationImagesSection />
+        {/* <PresentationImagesSection />
         <MovieScenesSection />
-        <SubmitArea header={false} />
+        <SubmitArea header={false} /> */}
       </form>
     </section>
   );

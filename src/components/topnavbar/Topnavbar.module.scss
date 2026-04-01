@@ -45,16 +45,3 @@
     object-fit: cover;
   }
 }
-
-input {
-  padding: 10px;
-  outline: none;
-  border-radius: 10px;
-
-  border: 2px solid $border-color;
-  &:focus {
-    border-color: $primary;
-    box-shadow: 0 0 0 4px rgba($primary, 0.1);
-    background-color: #fff;
-  }
-}

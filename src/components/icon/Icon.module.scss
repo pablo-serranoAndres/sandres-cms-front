@@ -25,3 +25,21 @@
     font-size: 2rem !important;
   }
 }
+
+.primary {
+  svg {
+    color: $primary !important;
+  }
+}
+
+.secondary {
+  svg {
+    color: $text-muted !important;
+  }
+}
+
+.base {
+  svg {
+    color: $text-main !important;
+  }
+}

@@ -1,0 +1,32 @@
+@use "@styles/variables.scss" as *;
+
+.breadcrumb {
+  display: flex;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+
+  span {
+    display: flex;
+    letter-spacing: 0.05rem;
+    color: $primary;
+    text-decoration: none;
+  }
+
+  svg {
+    color: $text-muted;
+  }
+
+  a {
+    text-decoration: none;
+    color: $text-muted;
+    transition: color ease 0.3s;
+
+    &:hover {
+      color: $text-main;
+    }
+  }
+
+  &:last-child {
+  }
+}

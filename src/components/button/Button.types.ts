@@ -1,13 +1,9 @@
-export const APP_PATHS = {
-  CONFIG: { pathname: "/config" },
-  CONTENT: { pathname: "/content" },
-  HOME: { pathname: "/" },
-  USERS: { pathname: "/users" },
-} as const;
+import type { APP_PATHS } from "src/routes/path";
 
 export interface ButtonProps {
   variant: "filled" | "outlined" | "transparent";
   size: "bg" | "md" | "sm";
+  type: "button" | "submit" | "reset";
   icon?: React.ReactNode;
   text: string;
   link?: keyof typeof APP_PATHS;

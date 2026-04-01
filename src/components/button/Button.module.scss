@@ -1,32 +1,22 @@
 @use "@styles/variables.scss" as *;
 
-.btn {
-  display: inline-flex;
+.button {
+  font-weight: $font-weight-bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 100%;
-  display: flex;
-  height: 50px;
-  align-items: center;
-  font-weight: $font-weight-bold;
-  border-radius: $border-radius;
-  // line-height: 1.25rem;
-  cursor: pointer;
-  text-decoration: none;
+  gap: 0.5rem;
 
-  svg {
-    font-size: 1.15rem;
-    margin-right: 10px;
-  }
+  border: 1px solid transparent;
+  transition: all 0.1s ease;
 }
 
-// 2. Variantes de Color
 .filled {
-  @extend .btn;
-  border: 1px solid transparent;
-  color: $text-white;
+  border: none;
   background-color: $primary;
-  box-shadow: $shadow-sm;
+  color: $text-white;
 
   &:hover {
     background-color: $primary-hover;
@@ -34,9 +24,9 @@
 }
 
 .outlined {
-  @extend .btn;
+  border: solid 2px $primary;
   color: $primary;
-  border: 2px solid $primary;
+  background-color: transparent;
 
   &:hover {
     background-color: $primary-light;
@@ -44,29 +34,32 @@
 }
 
 .transparent {
-  @extend .btn;
-  color: $text-light;
   background-color: transparent;
-  border: 1px solid transparent;
-  transition: color 0.3s ease;
+  border: none;
+  color: $text-muted;
 
   &:hover {
-    color: $text-muted;
+    background-color: $text-light;
   }
 }
 
 .sm {
-  font-size: 0.75rem;
-  padding: 6px 16px;
+  height: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: $font-size-sm;
 }
 
 .md {
-  font-size: 0.875rem;
-  padding: 5px 17px;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: $font-size-md;
 }
 
 .bg {
-  font-size: 1.125rem;
-  padding: 12px 32px;
-  border-radius: $border-radius-xl;
+  height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: $font-size-bg;
 }

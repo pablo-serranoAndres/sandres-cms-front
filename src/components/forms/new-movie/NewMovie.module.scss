@@ -1,119 +1,12 @@
-@use "@styles/variables.scss" as *;
-
 .formPage {
   width: 100%;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 
   form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 960px;
-    padding: 20px;
-
-    hr {
-      border: none;
-      height: 1.4px;
-      background-color: $border-color;
-      margin-bottom: 20px;
-    }
-    span {
-      font-weight: $font-weight-semi;
-      letter-spacing: 0.1em;
-      color: $primary;
-      font-size: 10px;
-
-      a {
-        text-decoration: none;
-        color: $text-muted;
-        transition: color 0.2s ease;
-        &:hover {
-          color: $primary-hover;
-        }
-      }
-    }
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    margin: 0 0 10px 0;
-  }
-
-  h2 {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin: 0 0 10px 0;
-    font-size: 1.25rem;
-    svg {
-      font-size: 1.5rem;
-      color: $primary;
-    }
-  }
-
-  label {
-    font-weight: $font-weight-semi;
-    font-size: 0.875rem;
-  }
-
-  .inputBase {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    input,
-    textarea,
-    select {
-      padding: 12px;
-      outline: none;
-      border-radius: 10px;
-      background-color: $bg-body;
-      border: 2px solid $border-color;
-      font-family: $font-family;
-      transition: all 0.2s ease;
-
-      &:focus {
-        border-color: $primary;
-        box-shadow: 0 0 0 4px rgba($primary, 0.1);
-        background-color: #fff;
-      }
-      &::placeholder {
-        font-style: italic;
-        color: $text-muted;
-      }
-    }
-
-    textarea {
-      height: 120px;
-      resize: none;
-    }
-  }
-}
-
-.verticalPoster:hover,
-.heroImage:hover {
-  .decoContent svg {
-    color: $primary;
-    transform: translateY(-2px);
-  }
-}
-
-.newMovie_movieScenes {
-  padding: 30px;
-  background-color: $bg-white;
-  border-radius: 15px;
-  gap: 20px;
-
-  h2 {
-    margin-bottom: 0px;
-  }
-
-  .helpText {
-    font-size: 0.75rem;
-    color: $text-light;
-    letter-spacing: 0;
-    font-weight: $font-weight-reg;
+    min-width: 800px;
   }
 }

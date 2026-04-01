@@ -1,12 +1,11 @@
-import { Icon } from "@components";
-import { NewSceneCard } from "../new-scene-card";
+import { Icon, NewSceneCard } from "@components";
 import styles from "./MovieScenesSection.module.scss";
 
 export const MovieScenesSection = () => {
   return (
     <div className={styles.newMovie_movieScenes}>
       <h2>
-        <Icon variant={"strip"} background={false} size={"bg"} />
+        <Icon variant={"strip"} background={false} size={"bg"} color={"base"} />
         Escenas de la Película
       </h2>
       <span className={styles.helpText}>
