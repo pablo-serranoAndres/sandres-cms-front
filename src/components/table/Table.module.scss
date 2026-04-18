@@ -1,0 +1,68 @@
+@use "@styles/variables.scss" as *;
+@use "@styles/animations.scss" as *;
+
+.dataTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+
+  &_headers {
+    background-color: $primary-light;
+
+    th {
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+      border-right: 0px solid #ccc;
+      color: $primary;
+      font-weight: 900;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+  }
+
+  &_body {
+    td {
+      font-weight: $font-weight-bold;
+      font-size: 0.875rem;
+      padding: 12px;
+      max-width: fit-content;
+      border-bottom: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-right: none;
+    }
+
+    img {
+      border-radius: 15px;
+      width: 90px;
+      height: 50px;
+      object-fit: cover;
+    }
+  }
+
+  &_icons {
+    span {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      // gap: 20px;
+    }
+  }
+}
+
+.tableAnimation {
+  &_left {
+    animation: leftAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &_right {
+    animation: rightAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

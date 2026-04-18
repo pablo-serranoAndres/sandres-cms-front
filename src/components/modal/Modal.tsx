@@ -63,6 +63,7 @@ export const Modal = () => {
             closeModal();
             navigate("/");
           }}
+          type={"button"}
         />
       </div>
     </div>

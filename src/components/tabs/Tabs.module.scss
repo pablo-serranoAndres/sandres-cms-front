@@ -1,0 +1,37 @@
+@use "@styles/variables.scss" as *;
+
+.tabs {
+  padding-left: 0px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+
+  li {
+    padding: 0px 4px 8px 4px;
+    font-size: 0.875rem;
+    font-weight: $font-weight-semi;
+    cursor: pointer;
+  }
+  .tab_active {
+    &_false {
+      transition: color 0.2s ease;
+      color: $text-muted;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        color: $text-btn-white;
+        border-bottom: 2px solid $primary;
+      }
+    }
+
+    &_true {
+      color: $primary;
+      border-bottom: 2px solid $primary;
+
+      &:hover {
+        color: $primary;
+        border-bottom: 2px solid $primary;
+      }
+    }
+  }
+}

@@ -1,22 +1,25 @@
 @use "@styles/variables.scss" as *;
 
 .button {
-  font-weight: $font-weight-bold;
-  border-radius: 0.5rem;
-  cursor: pointer;
   display: flex;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  border: 1px solid transparent;
-  transition: all 0.1s ease;
+  border-radius: $border-radius;
+  border: none;
+  font-weight: $font-weight-semi;
+  background-color: transparent;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.625em 1.2em;
+  text-align: center;
+  transition: all 0.2s ease;
+  // font-size: 100%;
 }
 
 .filled {
-  border: none;
   background-color: $primary;
   color: $text-white;
+  font-weight: $font-weight-bold;
 
   &:hover {
     background-color: $primary-hover;
@@ -24,42 +27,48 @@
 }
 
 .outlined {
-  border: solid 2px $primary;
   color: $primary;
   background-color: transparent;
+  border: solid 2px $primary;
 
   &:hover {
-    background-color: $primary-light;
+    background-color: $primary-shadow;
   }
 }
 
-.transparent {
+.unstyled {
+  color: $text-main;
   background-color: transparent;
   border: none;
-  color: $text-muted;
 
   &:hover {
-    background-color: $text-light;
+    transform: scale(1.3);
+    transition: scale 1.1s ease-in-out;
+    // background-color: red;
+  }
+}
+
+.white {
+  color: $text-btn-white;
+  background-color: $bg-white;
+  border: solid 1px $border-color;
+
+  &:hover {
+    background-color: $bg-body;
   }
 }
 
 .sm {
-  height: 2rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  font-size: $font-size-sm;
+  padding: 0.5rem 0.9rem 0.5rem 0.9rem;
+  font-size: 0.775rem;
 }
 
 .md {
-  height: 2.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: $font-size-md;
+  padding: 0.625rem 1.2rem 0.625rem 1.2rem;
+  font-size: 0.876rem;
 }
 
 .bg {
-  height: 3rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  font-size: $font-size-bg;
+  font-size: 1.1rem;
+  padding: 1rem 2rem 1rem 2rem;
 }

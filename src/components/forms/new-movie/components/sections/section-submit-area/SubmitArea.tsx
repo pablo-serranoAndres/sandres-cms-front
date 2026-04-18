@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Heading } from "@components";
+import { Breadcrumb, Button, Text } from "@components";
 import styles from "./SubmitArea.module.scss";
 
 export const SubmitArea = ({ header }: { header: boolean }) => {
@@ -12,7 +12,7 @@ export const SubmitArea = ({ header }: { header: boolean }) => {
               { name: "Nueva película", url: "" },
             ]}
           />
-          <Heading tag={"h1"} text={"Nueva película"} />
+          <Text tag={"h1"} text={"Nueva película"} />
         </div>
       )}
 

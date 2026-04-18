@@ -27,6 +27,7 @@ export const Topnavbar = () => {
           id={"search-all-contents"}
           type={"text"}
           placeholder="Buscar películas, series, diarios..."
+          background={"transparent"}
         />
       </form>
       <UserChip name={"John Smith"} role={"admin"} />

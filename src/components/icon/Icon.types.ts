@@ -1,14 +1,8 @@
+import type { ICON_MAP } from "./Icon";
+
 export interface IconProps {
-  variant:
-    | "info"
-    | "pictures"
-    | "picture"
-    | "film"
-    | "video"
-    | "dvd"
-    | "strip"
-    | "navigation";
-  background: boolean;
-  color: "primary" | "secondary" | "base";
+  variant: keyof typeof ICON_MAP;
+  color: "primary" | "white" | "black" | "grey" | "transparent";
   size: "sm" | "md" | "bg";
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }

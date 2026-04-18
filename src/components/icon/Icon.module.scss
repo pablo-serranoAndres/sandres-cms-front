@@ -1,28 +1,20 @@
 @use "@styles/variables.scss" as *;
 
-.background {
-  &_true {
-    padding: 7px;
-    border-radius: 10px;
-    background-color: $primary-shadow;
-  }
-}
-
 .sm {
   svg {
-    font-size: 0.8rem !important;
+    transform: scale(1.4) !important;
   }
 }
 
 .md {
   svg {
-    font-size: 1.1rem !important;
+    transform: scale(1.7) !important;
   }
 }
 
 .bg {
   svg {
-    font-size: 2rem !important;
+    transform: scale(2.3) !important;
   }
 }
 
@@ -38,8 +30,26 @@
   }
 }
 
-.base {
+.black {
   svg {
     color: $text-main !important;
+  }
+}
+
+.white {
+  svg {
+    color: $bg_white !important;
+  }
+}
+
+.grey {
+  svg {
+    color: $text-btn-white !important;
+  }
+}
+
+.transparent {
+  svg {
+    color: transparent !important;
   }
 }

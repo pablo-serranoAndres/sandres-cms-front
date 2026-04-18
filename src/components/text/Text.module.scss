@@ -1,0 +1,28 @@
+@use "@styles/variables.scss" as *;
+
+.h1 {
+  font-weight: $font-weight-bold;
+
+  letter-spacing: -0.025em;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  padding-bottom: 0px;
+  border-bottom-width: 1px;
+}
+
+.span {
+  font-size: 0.875rem;
+  color: $text-muted;
+  font-weight: $font-weight-reg;
+  line-height: 1.25rem;
+  margin-top: 0.25rem;
+}
