@@ -12,7 +12,7 @@ export const Button = ({
   type,
   text,
   link,
-  onclick,
+  onClick,
 }: ButtonProps) => {
   const clasNames = classNames(styles.button, styles[variant], styles[size]);
 
@@ -24,7 +24,7 @@ export const Button = ({
       {text}
     </Link>
   ) : (
-    <button className={clasNames} onClick={onclick} type={type}>
+    <button className={clasNames} onClick={onClick} type={type}>
       {icon && (
         <Icon variant={icon.variant} color={icon.color} size={icon.size} />
       )}

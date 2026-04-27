@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import type { ContentStates, ContentVariants } from "../table/Table.types";
 import styles from "./Badge.module.scss";
+import type { ContentState, ContentType } from "@types";
 
 const formatNames: Record<string, string> = {
   movie: "Pelicula",
@@ -10,14 +10,8 @@ const formatNames: Record<string, string> = {
   featured: "Publicado",
   saved: "No publicada",
 };
-export const Badge = ({
-  value,
-}: {
-  value: ContentVariants | ContentStates;
-}) => {
-  const clasNames = classNames(styles.badge, styles[`badge_${value.key}`]);
+export const Badge = ({ value }: { value: ContentType | ContentState }) => {
+  const clasNames = classNames(styles.badge, styles[`badge_${value}`]);
 
-  return (
-    <span className={clasNames}>{formatNames[value.key] || value.key}</span>
-  );
+  return <span className={clasNames}>{formatNames[value] || value}</span>;
 };

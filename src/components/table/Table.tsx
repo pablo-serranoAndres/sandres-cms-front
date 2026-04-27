@@ -1,9 +1,15 @@
 import classNames from "classnames";
 import type { TableProps } from "./Table.types";
 import { renderRow } from "./renderRow";
+import { PaginationControllers } from "./PaginationControllers";
 import styles from "./Table.module.scss";
 
-export const Table = ({ theadItems, tbodyItems, animation }: TableProps) => {
+export const Table = ({
+  theadItems,
+  tbodyItems,
+  animation,
+  pagination,
+}: TableProps) => {
   const tableClassnames = classNames(
     styles.dataTable,
     styles[`tableAnimation_${animation}`],
@@ -20,9 +26,14 @@ export const Table = ({ theadItems, tbodyItems, animation }: TableProps) => {
       </thead>
       <tbody className={styles.dataTable_body}>
         {tbodyItems.map((tr, index) => renderRow(tr, index))}
-        {/* <tr className={styles.lastRow}>
-          <p>GOLLLLL</p>
-        </tr> */}
+        {pagination && (
+          <tr className={styles.dataTable_lastRow}>
+            <td colSpan={4}></td>
+            <td colSpan={2}>
+              <PaginationControllers pagination={{ ...pagination }} />
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

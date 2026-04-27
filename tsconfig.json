@@ -4,8 +4,11 @@
     "paths": {
       "@components": ["src/components"],
       "@pages": ["src/pages"],
+      "@services": ["src/services"],
+      "@types": ["src/types"],
       "@styles": ["src/styles"],
       "@hooks": ["src/context"],
+      "@api": ["src/api"],
       "@context": ["src/hooks"]
     }
   },

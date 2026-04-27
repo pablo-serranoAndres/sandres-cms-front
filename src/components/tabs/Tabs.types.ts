@@ -1,13 +1,8 @@
-import type { MouseEventHandler } from "react";
+import type { TabType } from "@types";
 
 export interface TabsProps {
   tabs: TabType[];
   focusTab: number;
-  onChange: MouseEventHandler<HTMLLIElement>;
+  onClick: (id: string, index: number) => void;
   children: React.ReactNode;
 }
-
-type TabType = {
-  id: string;
-  value: string;
-};

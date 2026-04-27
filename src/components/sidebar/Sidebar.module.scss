@@ -3,11 +3,20 @@
 .nav {
   height: 100%;
   display: flex;
+  font-size: 0.875rem;
   flex-direction: column;
   justify-content: space-between;
-  img {
-    padding-top: 10px;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 200px;
+      object-fit: contain;
+    }
   }
+
   ul {
     list-style: none;
     padding-left: 0px;

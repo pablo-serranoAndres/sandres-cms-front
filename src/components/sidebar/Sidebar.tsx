@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
-import { FaDatabase } from "react-icons/fa";
-import { GrConfigure } from "react-icons/gr";
-import { HiMiniUsers } from "react-icons/hi2";
-import { RiHome2Line } from "react-icons/ri";
-import styles from "./Sidebar.module.scss";
-import { Button } from "@components";
-import { IoMdAddCircle } from "react-icons/io";
+import { Button, Icon } from "@components";
 import logoImg from "../../assets/logo.png";
 import { useModal } from "@hooks";
+import styles from "./Sidebar.module.scss";
 
 export const Sidebar = () => {
   const { openModal } = useModal();
@@ -15,24 +10,20 @@ export const Sidebar = () => {
   return (
     <nav className={styles.nav}>
       <div>
-        <Link to="/">
-          <img
-            src={logoImg}
-            alt="Logo de SandresTV CMS"
-            className={styles.logoImage}
-          />
+        <Link to="/" className={styles.logo}>
+          <img src={logoImg} />
         </Link>
         <ul className={styles.links}>
           <span className={styles.menu}>MENÚ PRINCIPAL</span>
           <li>
             <Link to="/">
-              <RiHome2Line />
+              <Icon variant={"home"} color={"grey"} size={"sm"} />
               Home
             </Link>
           </li>
           <li>
             <Link to="/content">
-              <FaDatabase />
+              <Icon variant={"database"} color={"grey"} size={"sm"} />
               Gestionar contenido
             </Link>
           </li>
@@ -41,13 +32,13 @@ export const Sidebar = () => {
           <span className={styles.menu}>MENÚ PRINCIPAL</span>
           <li>
             <Link to="/users">
-              <HiMiniUsers />
+              <Icon variant={"users"} color={"grey"} size={"sm"} />
               Usuarios
             </Link>
           </li>
           <li>
             <Link to="/config">
-              <GrConfigure />
+              <Icon variant={"config"} color={"grey"} size={"sm"} />
               Configuración
             </Link>
           </li>
@@ -56,13 +47,12 @@ export const Sidebar = () => {
 
       <div className={styles.addNew}>
         <Button
+          type="button"
           variant="filled"
           text="Añadir nuevo"
           size="bg"
-          onclick={() => {
-            openModal();
-          }}
-          icon={<IoMdAddCircle />}
+          onClick={() => openModal()}
+          icon={{ color: "white", variant: "add", size: "bg" }}
         />
       </div>
     </nav>

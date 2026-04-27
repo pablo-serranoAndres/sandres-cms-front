@@ -1,7 +1,7 @@
 import styles from "./Tabs.module.scss";
 import type { TabsProps } from "./Tabs.types";
 
-export const Tabs = ({ tabs, focusTab, children, onChange }: TabsProps) => {
+export const Tabs = ({ tabs, focusTab, children, onClick }: TabsProps) => {
   return (
     <div>
       <ul className={styles.tabs}>
@@ -11,9 +11,9 @@ export const Tabs = ({ tabs, focusTab, children, onChange }: TabsProps) => {
             data-index={index}
             data-id={tab.id}
             className={styles[`tab_active_${index === focusTab}`]}
-            onClick={(e) => onChange(e)}
+            onClick={() => onClick(tab.id, index)}
           >
-            {tab.value}
+            {tab.label}
           </li>
         ))}
       </ul>

@@ -8,5 +8,5 @@ export interface ButtonProps {
   icon?: IconProps;
   text: string;
   link?: keyof typeof APP_PATHS;
-  onclick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: () => void;
 }

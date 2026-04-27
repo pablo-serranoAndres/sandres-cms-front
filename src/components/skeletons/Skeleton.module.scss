@@ -1,0 +1,82 @@
+@use "sass:color"; // Importación necesaria para las nuevas funciones
+
+// Variables
+$sk-base: #ececec;
+$sk-shimmer: #f5f5f5;
+$sk-border: #f0f2f5;
+
+.tableSkeletonContainer {
+  width: 100%;
+  border: 1px solid #eef0f2;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin: 1rem 0;
+
+  .tableSkeletonRoot {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .tableSkeletonHead {
+    background-color: #f8f9fa;
+  }
+
+  .tableSkeletonHeaderCell,
+  .tableSkeletonDataCell {
+    padding: 16px;
+    border-bottom: 1px solid $sk-border;
+  }
+
+  .tableSkeletonRow {
+    &:last-child .tableSkeletonDataCell {
+      border-bottom: none;
+    }
+  }
+
+  .tableSkeletonBarHeader {
+    height: 12px;
+    width: 60%;
+    border-radius: 4px;
+    background: $sk-base;
+    background: linear-gradient(
+      90deg,
+      $sk-base 8%,
+      $sk-shimmer 18%,
+      $sk-base 33%
+    );
+    background-size: 200% 100%;
+    animation: tableSkeletonShimmerKeyframes 1.6s infinite linear;
+  }
+
+  .tableSkeletonBarBody {
+    height: 14px;
+    width: 90%;
+    border-radius: 4px;
+    background: $sk-base;
+    background: linear-gradient(
+      90deg,
+      $sk-base 8%,
+      $sk-shimmer 18%,
+      $sk-base 33%
+    );
+    background-size: 200% 100%;
+    animation: tableSkeletonShimmerKeyframes 1.6s infinite linear;
+  }
+
+  .tableSkeletonBarBodyPrimary {
+    width: 40%;
+    // Cambio clave para eliminar el Warning:
+    background-color: color.adjust($sk-base, $lightness: -2%);
+  }
+}
+
+@keyframes tableSkeletonShimmerKeyframes {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

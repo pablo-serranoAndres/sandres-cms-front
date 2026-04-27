@@ -6,12 +6,12 @@ export const NewMovieForm = () => {
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    // const formData = new FormData(e.currentTarget);
 
-    console.log(formData.get("title"));
-    console.log(formData.get("description"));
-    console.log(formData.get("categorie"));
-    console.log(formData.get("tags"));
+    // console.log(formData.get("title"));
+    // console.log(formData.get("description"));
+    // console.log(formData.get("categorie"));
+    // console.log(formData.get("tags"));
   };
 
   return (

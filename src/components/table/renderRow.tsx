@@ -1,5 +1,6 @@
-import { Badge, Button, type ContentSummaryType } from "@components";
+import { Badge, Button } from "@components";
 import styles from "./Table.module.scss";
+import type { ContentSummaryType } from "@types";
 
 export const renderRow = (tr: ContentSummaryType, index: number) => {
   return (
@@ -24,7 +25,7 @@ export const renderRow = (tr: ContentSummaryType, index: number) => {
             text={""}
             icon={{
               variant:
-                tr.state.key === "published" || tr.state.key === "featured"
+                tr.state === "published" || tr.state === "featured"
                   ? "unpublish"
                   : "publish",
               color: "primary",
@@ -38,8 +39,7 @@ export const renderRow = (tr: ContentSummaryType, index: number) => {
             type={"button"}
             text={""}
             icon={{
-              variant:
-                tr.state.key === "featured" ? "featured" : "not_featured",
+              variant: tr.state === "featured" ? "featured" : "not_featured",
               color: "primary",
               size: "sm",
             }}

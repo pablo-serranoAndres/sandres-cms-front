@@ -1,42 +1,147 @@
-import { Button, Table, Tabs, Text } from "@components";
+import { Button, Table, TableSkeleton, Tabs, Text } from "@components";
+import { useEffect, useState } from "react";
+import { CONTENT_SERVICE_MAP, getTabKeys } from "@services";
 import styles from "./Content.module.scss";
-import { useState } from "react";
-import { allContents, movies, series, diaries, type ItemSet } from "./dumpdata";
+import type { ContentTabType, ItemSetType, PaginationType } from "@types";
 
-type ContentLibrary = {
-  label: string;
-  itemset: ItemSet;
-};
+// const TAB_KEYS = getTabKeys();
 
-interface ActiveItems {
+interface ActiveItemsProps {
+  id: ContentTabType;
+  dataset: ItemSetType;
   previousOrder: number;
-  tabkey: string;
+  currentOrder: number;
+  pagination: PaginationType;
 }
 
-const CONTENT_CONFIG_MAP: Record<string, ContentLibrary> = {
-  all_contents: { label: "Todo el contenido", itemset: allContents },
-  movies: { label: "Películas", itemset: movies },
-  series: { label: "Series", itemset: series },
-  diaries: { label: "Diarios", itemset: diaries },
-};
-
-const TAB_KEYS = Object.keys(CONTENT_CONFIG_MAP);
-
 export const Content = () => {
-  const [activeItems, setActiveItems] = useState<ActiveItems>({
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [activeTab, setActiveTab] = useState<ActiveItemsProps>({
+    id: "all_contents",
+    dataset: { theadItems: [], tbodyItems: [] },
     previousOrder: 0,
-    tabkey: "all_contents",
+    currentOrder: 0,
+    pagination: {
+      currentSet: [1, 2, 3],
+      totalPages: 17,
+      currentPage: 1,
+    },
   });
 
-  const handleTabChange = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    setActiveItems({
-      previousOrder: TAB_KEYS.indexOf(activeItems.tabkey),
-      tabkey: e.currentTarget.dataset.id!,
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const service = CONTENT_SERVICE_MAP[activeTab.id];
+        const values = await service();
+
+        setActiveTab({
+          ...activeTab,
+          dataset: values,
+          pagination: {
+            totalPages: 13,
+            currentSet: [1, 2, 3],
+            // totalPages: Math.ceil(values.tbodyItems.length / 13),
+            // currentSet: Array.from(
+            //   { length: Math.ceil(values.tbodyItems.length / 13) },
+            //   (_, i) => i + 1,
+            // ),
+            currentPage: 1,
+            onClick: handlePaginationClick,
+          },
+        });
+      } catch (error) {
+        alert(`Error cargando datos: ${error}`);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [activeTab.id]);
+
+  const handleTabChange = (id: string, index: number) => {
+    setActiveTab({
+      ...activeTab,
+      id: id as ContentTabType,
+      previousOrder: activeTab.currentOrder,
+      currentOrder: index,
     });
   };
 
-  const currentData = CONTENT_CONFIG_MAP[activeItems.tabkey].itemset;
-  const currentOrder: number = TAB_KEYS.indexOf(activeItems.tabkey);
+  const handlePaginationClick = (newPage?: number) => {
+    console.log("4. TotalPages:", activeTab.pagination.totalPages);
+    if (newPage === activeTab.pagination.totalPages) {
+      const newCurrentSet = [newPage - 2, newPage - 1];
+
+      setActiveTab({
+        ...activeTab,
+        pagination: {
+          ...activeTab.pagination,
+          currentPage: newPage,
+          currentSet: newCurrentSet,
+        },
+      });
+    } else if (
+      newPage === undefined &&
+      activeTab.pagination.currentSet[
+        activeTab.pagination.currentSet.length - 1
+      ] +
+        1 ===
+        activeTab.pagination.totalPages
+    ) {
+      let length = 3;
+
+      while (1 + length > activeTab.pagination.totalPages) {
+        length--;
+      }
+
+      const newCurrentSet = Array.from({ length: length }, (_, i) => i + 1);
+
+      setActiveTab({
+        ...activeTab,
+        pagination: {
+          ...activeTab.pagination,
+          currentPage: newCurrentSet[0],
+          currentSet: newCurrentSet,
+        },
+      });
+
+      console.log("volver al principio");
+    } else if (newPage != null) {
+      setActiveTab({
+        ...activeTab,
+        pagination: {
+          ...activeTab.pagination,
+          currentPage: newPage,
+        },
+      });
+    } else {
+      let length = 3;
+      const firstIndex =
+        activeTab.pagination.currentSet[
+          activeTab.pagination.currentSet.length - 1
+        ];
+
+      while (firstIndex + length > activeTab.pagination.totalPages) {
+        length--;
+      }
+
+      const newCurrentSet = Array.from(
+        { length: length },
+        (_, i) => i + firstIndex,
+      );
+
+      setActiveTab({
+        ...activeTab,
+        pagination: {
+          ...activeTab.pagination,
+          currentPage: newCurrentSet[0],
+          currentSet: newCurrentSet,
+        },
+      });
+    }
+  };
+
   return (
     <section className={styles.contentLibrary}>
       <div className={styles.contentLibrary_intro}>
@@ -68,29 +173,34 @@ export const Content = () => {
             variant={"filled"}
             size={"md"}
             type={"button"}
-            text={"Añadir contenido"}
-            icon={{ variant: "add", color: "white", size: "md" }}
+            text={"Guardar contenido"}
+            icon={{ variant: "save", color: "white", size: "md" }}
           />
         </div>
       </div>
       <Tabs
-        tabs={Object.entries(CONTENT_CONFIG_MAP).map(([id, config]) => ({
-          id,
-          value: config.label,
-        }))}
-        focusTab={currentOrder}
-        onChange={(e: React.MouseEvent<HTMLLIElement, MouseEvent>) =>
-          handleTabChange(e)
-        }
+        tabs={getTabKeys()}
+        focusTab={activeTab.currentOrder}
+        onClick={handleTabChange}
       >
-        <Table
-          key={activeItems.tabkey}
-          animation={
-            activeItems.previousOrder > currentOrder ? "left" : "right"
-          }
-          theadItems={currentData.theadItems}
-          tbodyItems={currentData.tbodyItems}
-        />
+        {isLoading ? (
+          <TableSkeleton />
+        ) : (
+          <Table
+            key={activeTab.id}
+            animation={
+              activeTab.previousOrder > activeTab.currentOrder
+                ? "left"
+                : "right"
+            }
+            theadItems={activeTab.dataset.theadItems}
+            tbodyItems={activeTab.dataset.tbodyItems}
+            pagination={{
+              ...activeTab.pagination,
+              onClick: handlePaginationClick,
+            }}
+          />
+        )}
       </Tabs>
     </section>
   );
