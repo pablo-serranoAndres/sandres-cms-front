@@ -28,33 +28,40 @@
     }
   }
 
-  &_body {
-    td {
-      font-weight: $font-weight-bold;
-      font-size: 0.875rem;
-      padding: 12px;
-      max-width: 100%;
-      border-bottom: 1px solid #ccc;
-      border-right: 1px solid #ccc;
-      border-right: none;
-    }
+  // &_body {
+  //   td {
+  //     font-weight: $font-weight-bold;
+  //     font-size: 0.875rem;
+  //     padding: 12px;
+  //     max-width: 100%;
+  //     border-bottom: 1px solid #ccc;
+  //     border-right: 1px solid #ccc;
+  //     border-right: none;
+  //   }
 
-    img {
-      border-radius: 15px;
-      width: 90px;
-      height: 50px;
-      object-fit: cover;
-    }
-  }
+  //   img {
+  //     border-radius: 15px;
+  //     width: 90px;
+  //     height: 50px;
+  //     object-fit: cover;
+  //   }
+  // }
 
-  &_icons {
-    span {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      // gap: 20px;
-    }
-  }
+  // &_icons {
+  //   display: flex;
+  //   gap: 15px;
+  //   justify-content: center;
+  //   // width: 100%;
+
+  //   button div {
+  //     transition: scale 1.1s ease-in-out;
+  //     cursor: pointer;
+
+  //     &:hover {
+  //       transform: scale(1.3);
+  //     }
+  //   }
+  // }
 
   &_lastRow {
     td {
@@ -72,42 +79,3 @@
     animation: rightAppear 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
-
-.paginationControllers {
-  display: flex;
-  justify-content: center;
-  padding-left: 0px;
-  gap: 10px;
-  list-style: none;
-}
-//   li {
-//     text-align: end;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     cursor: pointer;
-//     border-radius: 5px;
-//     padding: 11px;
-//     box-shadow: $shadow-sm;
-//   }
-
-//   &_focus {
-//     background-color: $primary;
-//     color: $text-white;
-//     font-weight: $font-weight-bold;
-//     box-shadow: $shadow-sm;
-//   }
-
-//   &_notFocus {
-//     background-color: $text-white;
-//     transition: box-shadow 0.3s ease;
-
-//     &:hover {
-//       box-shadow: $shadow-card;
-//     }
-//   }
-
-//   &_addMore {
-//     background-color: yellow;
-//   }
-// }

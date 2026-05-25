@@ -47,6 +47,7 @@ export const Sidebar = () => {
 
       <div className={styles.addNew}>
         <Button
+          id={"sidebar-add-new-content"}
           type="button"
           variant="filled"
           text="Añadir nuevo"

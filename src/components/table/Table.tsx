@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import type { TableProps } from "./Table.types";
-import { renderRow } from "./renderRow";
-import { PaginationControllers } from "./PaginationControllers";
+import { Row } from "./components/row/Row";
+import { Pagination } from "./components/pagination/Pagination";
 import styles from "./Table.module.scss";
 
 export const Table = ({
@@ -25,12 +25,14 @@ export const Table = ({
         </tr>
       </thead>
       <tbody className={styles.dataTable_body}>
-        {tbodyItems.map((tr, index) => renderRow(tr, index))}
+        {tbodyItems.map((tr) => (
+          <Row key={tr.title} tr={tr} />
+        ))}
         {pagination && (
           <tr className={styles.dataTable_lastRow}>
             <td colSpan={4}></td>
             <td colSpan={2}>
-              <PaginationControllers pagination={{ ...pagination }} />
+              <Pagination pagination={{ ...pagination }} />
             </td>
           </tr>
         )}

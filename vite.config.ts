@@ -15,7 +15,9 @@ export default defineConfig({
       "@services": path.resolve(__dirname, "./src/services"),
       "@types": path.resolve(__dirname, "./src/types"),
       "@api": path.resolve(__dirname, "./src/api"),
-
+      "@models": path.resolve(__dirname, "./src/models"),
+      "@utils": path.resolve(__dirname, "./src/utils"),
+      "@forms": path.resolve(__dirname, "src/components/forms"),
     },
   },
 });

@@ -1,0 +1,30 @@
+@use "@styles/variables.scss" as *;
+@use "@styles/animations.scss" as *;
+
+.filterPopover {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  align-items: center;
+}
+
+.popover {
+  &_true {
+    position: absolute;
+    padding: 30px;
+    height: fit-content;
+    width: 450px;
+    z-index: 999;
+    margin-top: 50px;
+    border-radius: $border-radius-xl;
+    color: $text-btn-white;
+    background-color: $bg-white;
+    border: solid 1px $border-color;
+    animation: popoverAppear 0.2s ease-out forwards;
+  }
+
+  &_false {
+    display: none;
+  }
+}

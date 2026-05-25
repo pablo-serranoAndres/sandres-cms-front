@@ -2,13 +2,14 @@ import { api, ENDPOINTS } from "@api";
 import type {
   ContentState,
   ContentSummaryType,
+  ContentTabType,
   ContentType,
-  ItemSetType,
   TabType,
 } from "@types";
+import { formatDate } from "@utils";
 import type { Content } from "src/models/Content";
 
-const getAllContents = async (): Promise<ItemSetType> => {
+export const getAllContents = async (): Promise<ContentSummaryType[]> => {
   const tbodyItems: ContentSummaryType[] = [];
   const result = await api<Content[]>(ENDPOINTS.CONTENTS);
 
@@ -19,96 +20,12 @@ const getAllContents = async (): Promise<ItemSetType> => {
         title: result[i].title,
         type: result[i].type as ContentType,
         state: result[i].state as ContentState,
-        uploadAt: "result.lastUpdated",
+        uploadAt: formatDate(result[i].lastUpdated),
       });
     }
   }
 
-  const allContents = {
-    theadItems: [
-      "Portada",
-      "Título",
-      "Tipo",
-      "Estado",
-      "Fecha de creación",
-      "Acciones",
-    ],
-    tbodyItems: tbodyItems,
-  };
-
-  return allContents;
-};
-
-const getAllMovies = async (): Promise<ItemSetType> => {
-  const tbodyItems: ContentSummaryType[] = [];
-  const result = await api<Content[]>(ENDPOINTS.CONTENTS);
-
-  if (result) {
-    result.map((content: Content) => {
-      tbodyItems.push({
-        img: { src: content.cartelImage, alt: content.title },
-        title: content.title,
-        type: content.type as ContentType,
-        state: content.state as ContentState,
-        uploadAt: "result.lastUpdated",
-      });
-    });
-  }
-
-  const allContents = {
-    theadItems: ["Portada", "Título", "Tipo", "Estado", "Fecha de creación"],
-    tbodyItems: tbodyItems,
-  };
-
-  return allContents;
-};
-
-const getAllSeries = async (): Promise<ItemSetType> => {
-  const tbodyItems: ContentSummaryType[] = [];
-  const result = await api<Content[]>(ENDPOINTS.CONTENTS);
-
-  if (result) {
-    result.map((content: Content) => {
-      tbodyItems.push({
-        img: { src: content.cartelImage, alt: content.title },
-        title: content.title,
-        type: content.type as ContentType,
-        state: content.state as ContentState,
-        uploadAt: "result.lastUpdated",
-      });
-    });
-  }
-
-  const allContents = {
-    theadItems: ["Portada", "Título", "Tipo", "Estado", "Fecha de creación"],
-    tbodyItems: tbodyItems,
-  };
-
-  return allContents;
-};
-
-const getAllDiaries = async () => {
-  const tbodyItems: ContentSummaryType[] = [];
-  const result = await api<Content[]>(ENDPOINTS.CONTENTS);
-
-  if (result) {
-    result.map((content: Content) => {
-      tbodyItems.push({
-        img: { src: content.cartelImage, alt: content.title },
-        title: content.title,
-        type: content.type as ContentType,
-        state: content.state as ContentState,
-        uploadAt: "result.lastUpdated",
-      });
-    });
-  }
-
-  const allContents = {
-    theadItems: ["Portada", "Título", "Tipo", "Estado", "Fecha de creación"],
-    tbodyItems: tbodyItems,
-  };
-
-  return allContents;
+  return tbodyItems;
 };
 
 export const getTabKeys = (): TabType[] => {
@@ -120,9 +37,28 @@ export const getTabKeys = (): TabType[] => {
   ];
 };
 
-export const CONTENT_SERVICE_MAP: Record<string, () => Promise<ItemSetType>> = {
-  all_contents: getAllContents,
-  movies: getAllMovies,
-  series: getAllSeries,
-  diaries: getAllDiaries,
+export const getContentCount = (content: ContentTabType): number => {
+  let result: number;
+
+  switch (content) {
+    case "all_contents":
+      result = 23;
+      return result;
+
+    case "diaries":
+      result = 16;
+      return result;
+
+    case "movies":
+      result = 10;
+      return result;
+
+    case "series":
+      result = 14;
+      return result;
+
+    default:
+      result = 0;
+      return result;
+  }
 };

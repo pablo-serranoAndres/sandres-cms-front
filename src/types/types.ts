@@ -1,14 +1,14 @@
-export type ItemSetType = {
-  theadItems: string[];
-  tbodyItems: ContentSummaryType[];
-};
+// export type ItemSetType = {
+//   theadItems: string[];
+//   tbodyItems: ContentSummaryType[];
+// };
 
 export type ContentSummaryType = {
   img: { src: string; alt: string };
   title: string;
   type: ContentType;
   state: ContentState;
-  uploadAt: string;
+  uploadAt: { date: string; hour: string };
 };
 
 export type ContentTabType = "all_contents" | "movies" | "series" | "diaries";
@@ -25,5 +25,7 @@ export type PaginationType = {
   currentSet: number[];
   totalPages: number;
   currentPage: number;
-  onClick?: (pageNumber?: number) => void;
+  onClick?: (pageNumber: number) => void;
 };
+
+export type PopoverType = { id: number; name: string; key: string };

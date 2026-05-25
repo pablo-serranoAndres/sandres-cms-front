@@ -1,0 +1,67 @@
+@use "@styles/variables.scss" as *;
+@use "@styles/animations.scss" as *;
+.row {
+  height: 50px;
+  td {
+    vertical-align: middle;
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+  }
+  &_image {
+    width: 90px;
+    img {
+      width: 90px;
+      height: 50px;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &_title,
+  &_type,
+  &_state,
+  &_uploadAt {
+    font-weight: $font-weight-bold;
+    font-size: 0.875rem;
+    max-width: 100%;
+    border-right: none;
+  }
+
+  &_uploadAt {
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      :first-child {
+        color: rgb(71 85 105);
+        font-weight: 500;
+        font-size: 0.75rem;
+      }
+      :last-child {
+        color: rgb(148 163 184);
+        font-size: 10px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &_icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: inherit;
+    gap: 15px;
+
+    button div {
+      transition: transform 0.2s ease-in-out;
+      // cursor: pointer;
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+}

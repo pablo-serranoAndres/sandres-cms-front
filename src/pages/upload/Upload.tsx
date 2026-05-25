@@ -1,10 +1,9 @@
-import { NewMovieForm } from "@components";
 import { useModal } from "@hooks";
 import { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
 
 const UPLOABLES = new Map<string, React.ReactNode>([
-  ["movie", <NewMovieForm />],
+  // ["movie", <NewMovieForm />],
   // ["serie", <NewSerieForm />],
   // ["diarie", <NewDiarieForm />],
 ]);

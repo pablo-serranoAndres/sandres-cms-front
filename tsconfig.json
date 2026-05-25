@@ -9,7 +9,10 @@
       "@styles": ["src/styles"],
       "@hooks": ["src/context"],
       "@api": ["src/api"],
-      "@context": ["src/hooks"]
+      "@context": ["src/hooks"],
+      "@models": ["src/models"],
+      "@utils": ["src/utils"],
+      "@forms": ["src/components/forms"]
     }
   },
   "files": [],

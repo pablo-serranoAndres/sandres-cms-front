@@ -1,0 +1,15 @@
+@use "@styles/variables.scss" as *;
+@use "@styles/animations.scss" as *;
+
+.paginationControllers {
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+  gap: 10px;
+  list-style: none;
+
+  li {
+    display: flex;
+    gap: 10px;
+  }
+}

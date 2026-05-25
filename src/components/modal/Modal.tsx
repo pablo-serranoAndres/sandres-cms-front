@@ -56,10 +56,11 @@ export const Modal = () => {
           </ul>
         </div>
         <Button
-          variant={"transparent"}
+          id={"modal-back-to-menu"}
+          variant={"unstyled"}
           size={"md"}
           text={"Cancelar y volver al dashboard"}
-          onclick={() => {
+          onClick={() => {
             closeModal();
             navigate("/");
           }}
